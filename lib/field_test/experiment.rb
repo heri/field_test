@@ -30,6 +30,8 @@ module FieldTest
         membership.variant ||= weighted_variant
       end
 
+      membership.visit_id = options[:visit_id] if options[:visit_id]
+      
       # upgrade to preferred participant
       membership.participant = participants.first
 
@@ -41,7 +43,8 @@ module FieldTest
           info = {
             experiment: id,
             variant: membership.variant,
-            participant: membership.participant
+            participant: membership.participant,
+            visit_id: membership.visit_id
           }.merge(options.slice(:ip, :user_agent))
 
           # sorta logfmt :)

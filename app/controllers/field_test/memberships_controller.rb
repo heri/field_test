@@ -9,7 +9,7 @@ module FieldTest
     private
 
       def membership_params
-        params.require(:membership).permit(:variant)
+        params.require(:membership).permit(:variant, :visit_id)
       end
   end
 end
